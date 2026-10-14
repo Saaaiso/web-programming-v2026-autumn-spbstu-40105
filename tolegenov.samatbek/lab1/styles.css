@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.scene {
+  padding: 60px;
+}
+
+.rect-center {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  margin: 0 auto;
+  background-color: green;
+}
+
+.rect-left {
+  position: absolute;
+  top: 20px;
+  left: -40px;
+  z-index: -1;
+  width: 160px;
+  height: 120px;
+  background-color: red;
+}
+
+.rect-right {
+  position: absolute;
+  right: -40px;
+  bottom: 20px;
+  z-index: 1;
+  width: 160px;
+  height: 120px;
+  background-color: blue;
+}
