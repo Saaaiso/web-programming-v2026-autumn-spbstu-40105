@@ -1,6 +1,6 @@
 /* model.js — данные и логика (без работы с DOM) */
 
-/* 4.1 Класс*/
+/* 4.1 Класс */
 export class ClothingItem {
   constructor(id, name, size, colors = []) {
     this.id = id;
@@ -38,34 +38,41 @@ export class ClothingItem {
   }
 }
 
-/* 4.2 Функции над массивом товаров*/
-export const groupBySize = (items) =>
+/* 4.2 Функции над массивом товаров */
+export const groupItemsBySize = (items) =>
   items.reduce((acc, it) => ((acc[it.size] ||= []).push(it), acc), {});
 
 export const getUniqueColors = (items) => [
   ...new Set(items.flatMap((it) => it.colors)),
 ];
 
-export const getItemsByColor = (items, color) => {
+export const findItemsByColor = (items, color) => {
   const c = ClothingItem.norm(color);
   return items.filter((it) => it.colors.includes(c));
 };
 
-export const groupByColorsCount = (items) =>
+export const groupItemsByColorsCount = (items) =>
   items.reduce((acc, it) => ((acc[it.colorsCount] ||= []).push(it), acc), {});
 
-export const getItemsWithMoreColors = (items, n) =>
+export const findItemsWithMoreColors = (items, n) =>
   items.filter((it) => it.colorsCount > n);
+
+/* Прежние имена, чтобы main.js работал без правок */
+export const groupBySize = groupItemsBySize;
+export const getItemsByColor = findItemsByColor;
+export const groupByColorsCount = groupItemsByColorsCount;
+export const getItemsWithMoreColors = findItemsWithMoreColors;
 
 /* ---------- Асинхронность: Promise + setTimeout ---------- */
 export const delay = (ms = 400) =>
   new Promise((resolve) => setTimeout(resolve, ms));
+
 export const runAsync = async (fn) => {
   await delay();
   return fn();
 };
 
-/* Хранилище (localStorage)*/
+/* Хранилище (localStorage) */
 export const STORAGE_KEY = 'clothing-catalog-v1';
 export const SIZES = ['S', 'M', 'L', 'XL'];
 
@@ -119,4 +126,3 @@ export const catalog = {
 };
 
 catalog.init();
-export const groupItemsBySize = groupBySize;
