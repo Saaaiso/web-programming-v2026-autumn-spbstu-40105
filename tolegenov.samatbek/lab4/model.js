@@ -51,7 +51,7 @@ export const findItemsByColor = (items, color) => {
   return items.filter((it) => it.colors.includes(c));
 };
 
-export const groupItemsByColorsCount = (items) =>
+export const groupItemsByColorCount = (items) =>
   items.reduce((acc, it) => ((acc[it.colorsCount] ||= []).push(it), acc), {});
 
 export const findItemsWithMoreColors = (items, n) =>
@@ -60,7 +60,7 @@ export const findItemsWithMoreColors = (items, n) =>
 /* Прежние имена, чтобы main.js работал без правок */
 export const groupBySize = groupItemsBySize;
 export const getItemsByColor = findItemsByColor;
-export const groupByColorsCount = groupItemsByColorsCount;
+export const groupByColorsCount = groupItemsByColorCount;
 export const getItemsWithMoreColors = findItemsWithMoreColors;
 
 /* ---------- Асинхронность: Promise + setTimeout ---------- */
