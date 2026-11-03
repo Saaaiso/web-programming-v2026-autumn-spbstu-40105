@@ -11,6 +11,9 @@ import {
   getItemsWithMoreColors,
 } from './model.js';
 
+window.addEventListener('pagehide', () => catalog.save());
+window.addEventListener('beforeunload', () => catalog.save());
+
 const $ = (s) => document.querySelector(s);
 const LIST = '[data-testid="entity-list"]';
 const ITEM_FORM = '[data-testid="entity-form"]';

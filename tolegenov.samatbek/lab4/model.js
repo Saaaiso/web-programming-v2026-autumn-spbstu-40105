@@ -119,5 +119,3 @@ export const catalog = {
 };
 
 catalog.init();
-window.addEventListener('pagehide', () => catalog.save());
-window.addEventListener('beforeunload', () => catalog.save());
