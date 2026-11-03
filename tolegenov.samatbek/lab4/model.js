@@ -63,7 +63,7 @@ export const getItemsByColor = findItemsByColor;
 export const groupByColorsCount = groupItemsByColorCount;
 export const getItemsWithMoreColors = findItemsAboveColorCount;
 
-/*Асинхронность: Promise + setTimeout*/
+/* Асинхронность: Promise + setTimeout*/
 export const delay = (ms = 400) =>
   new Promise((resolve) => setTimeout(resolve, ms));
 
