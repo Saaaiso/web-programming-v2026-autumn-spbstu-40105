@@ -119,3 +119,4 @@ export const catalog = {
 };
 
 catalog.init();
+export const groupItemsBySize = groupBySize;
